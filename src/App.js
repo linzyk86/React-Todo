@@ -5,12 +5,12 @@ import TodoList from './components/TodoList';
 const todos = [
   {
     task: 'Clean kitchen',
-    id: Date.now(),
+    id: 1,
     completed: false
   },
   {
     task: 'Bake Cookies',
-    id: Date.now(),
+    id: 2,
     completed: false
   }
 ];
@@ -28,36 +28,52 @@ class App extends React.Component {
   }
 
   toggleCompleted = todoId=>{
+    console.log(todoId);
     this.setState({
-      todos:this.state.todos.map(todo =>{
+      todos: this.state.todos.map(todo =>{
         if(todoId ===todo.id){
           return{
             ...todo, completed:!todo.completed
-          }  
+          };
         }
         return todo;
       })
-    })
-  }
+    });
+  };
 
   addTodo=(e,todo)=>{
     e.preventDefault();
+    console.log(todo);
     const newTodo = {
-      task: todo,
-      id:Date.now(),
+      name: todo,
+      id: Date.now(),
       completed: false
-    }
+    };
     this.setState({
-      todos:[...this.state.todos, newTodo]
-    })
+      todos: [...this.state.todos, newTodo]
+    });
+  };
+
+  clearCompleted = e=>{
+    e.preventDefault();
+    console.log("clicked");
+    this.setState({
+      todos: this.state.todos.filter(todo=>!todo.completed)
+    });
+
   }
+
   render() {
     return (
-      <div>
+      <div className = 'App'>
+        <div className = 'header'>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTodo={this.addTodo}/>
-        <TodoList toggleCompleted = {this.toggleCompleted} todos ={this.state.todos}/>
-      </div>
+        </div>
+        <TodoList toggleCompleted = {this.toggleCompleted} todos ={this.state.todos} clearCompleted={this.clearCompleted}
+        todo = {this.state.todo}/>
+        </div>
+      
     );
   }
 }
