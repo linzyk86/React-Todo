@@ -4,12 +4,12 @@ import TodoList from './components/TodoList';
 
 const todos = [
   {
-    task: 'Clean kitchen',
+    todo: 'Clean kitchen',
     id: 1,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    todo: 'Bake Cookies',
     id: 2,
     completed: false
   }
@@ -33,12 +33,15 @@ class App extends React.Component {
       todos: this.state.todos.map(todo =>{
         if(todoId ===todo.id){
           return{
-            ...todo, completed:!todo.completed
-          };
+            ...todo, completed:!todo.completed  
+          };  
         }
+
         return todo;
-      })
-    });
+      }) 
+      
+    }); 
+      
   };
 
   addTodo=(e,todo)=>{
@@ -53,6 +56,8 @@ class App extends React.Component {
       todos: [...this.state.todos, newTodo]
     });
   };
+
+
 
   clearCompleted = e=>{
     e.preventDefault();
