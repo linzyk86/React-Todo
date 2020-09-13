@@ -1,3 +1,45 @@
 .completed{
     text-decoration: line-through;
 }
+
+body{
+    background-image: url("../images/plants.jpg");
+    background-size: cover;
+}
+
+.App{
+    background-color: white;
+    max-width: 40%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px 15px 20px 15px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.header{
+    color:#79616f;
+    font-size: 1.25em;
+font-family: 'Lato', sans-serif;
+}
+
+button{
+    background: transparent;
+  border-radius: 3px;
+  border: 2px solid #bfcdcd;
+  color: #bfcdcd;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+
+}
+input{
+    border-radius: 3px ;
+    border: 2px solid #bfcdcd;
+      padding: 0.25em 1em;
+
+}
+
+.todo{
+    color: #2c464f
+}

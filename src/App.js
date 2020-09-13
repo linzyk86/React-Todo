@@ -20,31 +20,31 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  constructor(){
+  constructor() {
     super();
-    this.state ={
-        todos: todos
+    this.state = {
+      todos: todos
     };
   }
 
-  toggleCompleted = todoId=>{
+  toggleCompleted = todoId => {
     console.log(todoId);
     this.setState({
-      todos: this.state.todos.map(todo =>{
-        if(todoId ===todo.id){
-          return{
-            ...todo, completed:!todo.completed  
-          };  
+      todos: this.state.todos.map(todo => {
+        if (todoId === todo.id) {
+          return {
+            ...todo, completed: !todo.completed
+          };
         }
 
         return todo;
-      }) 
-      
-    }); 
-      
+      })
+
+    });
+
   };
 
-  addTodo=(e,todo)=>{
+  addTodo = (e, todo) => {
     e.preventDefault();
     console.log(todo);
     const newTodo = {
@@ -59,26 +59,26 @@ class App extends React.Component {
 
 
 
-  clearCompleted = e=>{
+  clearCompleted = e => {
     e.preventDefault();
     console.log("clicked");
     this.setState({
-      todos: this.state.todos.filter(todo=>!todo.completed)
+      todos: this.state.todos.filter(todo => !todo.completed)
     });
 
   }
 
   render() {
     return (
-      <div className = 'App'>
-        <div className = 'header'>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTodo={this.addTodo}/>
+      <div className='App'>
+        <div className='header'>
+          <h2>My To-Do List</h2>
+          <TodoForm addTodo={this.addTodo} />
         </div>
-        <TodoList toggleCompleted = {this.toggleCompleted} todos ={this.state.todos} clearCompleted={this.clearCompleted}
-        todo = {this.state.todo}/>
-        </div>
-      
+        <TodoList toggleCompleted={this.toggleCompleted} todos={this.state.todos} clearCompleted={this.clearCompleted}
+          todo={this.state.todo} />
+      </div>
+
     );
   }
 }
